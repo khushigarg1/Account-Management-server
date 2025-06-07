@@ -10,7 +10,6 @@ import { AccountModule } from './modules/account/account.module';
 import { TransactionModule } from './modules/transaction/transaction.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
 // Controllers
 import { AppController } from './app.controller';
@@ -41,8 +40,6 @@ import { AuthMiddleware } from './modules/auth/auth.middleware';
       entities: [User, Account, Transaction, Viewer],
       synchronize: true,
       autoLoadEntities: true,
-      ssl:
-        process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
     }),
     AuthModule,
     UserModule,

@@ -8,6 +8,7 @@ interface RequestCustom extends Request {
     email: string;
   };
 }
+
 @Injectable()
 export class HttpLoggerMiddleware implements NestMiddleware {
   private readonly logger = new Logger(HttpLoggerMiddleware.name);

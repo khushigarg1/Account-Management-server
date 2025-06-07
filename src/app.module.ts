@@ -40,6 +40,8 @@ import { AuthMiddleware } from './modules/auth/auth.middleware';
       entities: [User, Account, Transaction, Viewer],
       synchronize: true,
       autoLoadEntities: true,
+      ssl:
+        process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
     }),
     AuthModule,
     UserModule,
